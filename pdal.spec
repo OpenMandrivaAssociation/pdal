@@ -46,7 +46,7 @@ BuildRequires:	python%{pyver}dist(sphinx-rtd-theme)
 %endif
 BuildRequires:	qhull-devel
 
-Requires:	%{name}-libs = %{EVRD}}
+Requires:	%{libname} = %{EVRD}
 Requires:	bash-completion
 
 %description
