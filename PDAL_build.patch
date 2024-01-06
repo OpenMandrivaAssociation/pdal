@@ -1,0 +1,19 @@
+diff -rupN --no-dereference PDAL-2.6.0-src/io/EsriReader.cpp PDAL-2.6.0-src-new/io/EsriReader.cpp
+--- PDAL-2.6.0-src/io/EsriReader.cpp	2023-10-12 20:12:24.000000000 +0200
++++ PDAL-2.6.0-src-new/io/EsriReader.cpp	2023-10-14 10:36:25.410094052 +0200
+@@ -32,7 +32,6 @@
+ * OF SUCH DAMAGE.
+ ****************************************************************************/
+ 
+-#include "EsriReader.hpp"
+ 
+ #include <Eigen/Geometry>
+ 
+@@ -41,6 +40,7 @@
+ #include <pdal/private/MathUtils.hpp>
+ #include <pdal/private/SrsTransform.hpp>
+ 
++#include "EsriReader.hpp"
+ #include "private/esri/Obb.hpp"
+ #include "lepcc/src/include/lepcc_types.h"
+ 
