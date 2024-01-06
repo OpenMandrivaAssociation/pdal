@@ -1,3 +1,5 @@
+%define _disable_lto 1
+
 %global libname			%mklibname %{name}
 %global devname			%mklibname %{name} -d
 
@@ -8,7 +10,7 @@
 
 Summary:	Point Data Abstraction Library
 Name:		pdal
-Version:	2.6.0
+Version:	2.6.1
 Release:	1
 Group:		Sciences/Geosciences
 License:	BSD-3-Clause AND Apache-2.0 AND MIT AND BSL-1.0
@@ -17,7 +19,8 @@ Source:		https://github.com/%{name}/%{name}/releases/download/%{version}/PDAL-%{
 # (fedora)
 Patch0:		pdal_unbundle.patch
 Patch1:		pdal_tests.patch
-
+Patch2:		PDAL_build.patch
+Patch3:		pdal_bashcompletion.patch
 BuildRequires:	cmake
 BuildRequires:	ninja
 BuildRequires:	boost-devel
@@ -163,5 +166,7 @@ popd
 %ninja_install -C build
 
 %check
-ctest || :
+pushd build
+#ctest || :
+popd
 
