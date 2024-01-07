@@ -1,7 +1,8 @@
 %define _disable_lto 1
 
-%global libname			%mklibname %{name}
-%global devname			%mklibname %{name} -d
+%global libname	%mklibname %{name}
+%global devname	%mklibname %{name} -d
+%global major	16
 
 # We don't want to provide private PDAL extension libs (to be verified)
 %global __provides_exclude_from ^%{_libdir}/libpdal_plugin.*\.so.*$
@@ -85,11 +86,12 @@ to use PDAL
 %license LICENSE.txt
 %license vendor/arbiter/LICENSE
 %license plugins/e57/libE57Format/LICENSE.md
-%{_libdir}/libpdal_base.so.15*
-%{_libdir}/libpdal_plugin_kernel_fauxplugin.so.15*
-%{_libdir}/libpdal_plugin_reader_pgpointcloud.so.15*
-%{_libdir}/libpdal_plugin_writer_pgpointcloud.so.15*
-%{_libdir}/libpdal_util.so.15*
+#{_libdir}/libpdal_base.so.%{major}*
+%{_libdir}/libpdalcpp.so.%{major}*
+%{_libdir}/libpdal_plugin_kernel_fauxplugin.so.%{major}*
+%{_libdir}/libpdal_plugin_reader_pgpointcloud.so.%{major}*
+%{_libdir}/libpdal_plugin_writer_pgpointcloud.so.%{major}*
+#{_libdir}/libpdal_util.so.%{major}*
 
 #--------------------------------------------------------------------
 
@@ -109,8 +111,8 @@ compile C or C++ applications which will directly interact with PDAL.
 %exclude %{_libdir}/libpdal_plugin_kernel_fauxplugin.so
 %exclude %{_libdir}/libpdal_plugin_reader_pgpointcloud.so
 %exclude %{_libdir}/libpdal_plugin_writer_pgpointcloud.so
-%{_libdir}/libpdal_base.so
-%{_libdir}/libpdal_util.so
+#{_libdir}/libpdal_base.so
+#{_libdir}/libpdal_util.so
 %{_libdir}/libpdalcpp.so
 %{_libdir}/cmake/PDAL/
 %{_libdir}/pkgconfig/*.pc
