@@ -11,7 +11,7 @@
 
 Summary:	Point Data Abstraction Library
 Name:		pdal
-Version:	2.6.1
+Version:	2.6.2
 Release:	1
 Group:		Sciences/Geosciences
 License:	BSD-3-Clause AND Apache-2.0 AND MIT AND BSL-1.0
