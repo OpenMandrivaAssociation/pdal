@@ -1,0 +1,38 @@
+diff -up PDAL-2.8.1-src/vendor/kazhdan/Ply.h.omv~ PDAL-2.8.1-src/vendor/kazhdan/Ply.h
+--- PDAL-2.8.1-src/vendor/kazhdan/Ply.h.omv~	2024-11-09 22:40:36.013129328 +0100
++++ PDAL-2.8.1-src/vendor/kazhdan/Ply.h	2024-11-09 22:41:05.803477555 +0100
+@@ -317,7 +317,7 @@ public:
+ 	PlyOrientedVertex( void ) { ; }
+ 	PlyOrientedVertex( Point3D< Real > p , Point3D< Real > n ) : point(p) , normal(n) { ; }
+   	PlyOrientedVertex operator + ( PlyOrientedVertex p ) const { return PlyOrientedVertex( point+p.point , normal+p.normal ); }
+-	PlyOrientedVertex operator - ( PlyOrientedVertex p ) const { return PlyOrientedVertex( point-p.value , normal-p.normal ); }
++	PlyOrientedVertex operator - ( PlyOrientedVertex p ) const { return PlyOrientedVertex( point-p.point , normal-p.normal ); }
+ 	template< class _Real > PlyOrientedVertex operator * ( _Real s ) const { return PlyOrientedVertex( point*s , normal*s ); }
+ 	template< class _Real > PlyOrientedVertex operator / ( _Real s ) const { return PlyOrientedVertex( point/s , normal/s ); }
+ 	PlyOrientedVertex& operator += ( PlyOrientedVertex p ) { point += p.point , normal += p.normal ; return *this; }
+@@ -363,7 +363,7 @@ public:
+ 		}
+ 
+ 	  	_PlyColorVertex operator + ( _PlyColorVertex p ) const { return _PlyColorVertex( point+p.point , color+p.color ); }
+-		_PlyColorVertex operator - ( _PlyColorVertex p ) const { return _PlyColorVertex( point-p.value , color-p.color ); }
++		_PlyColorVertex operator - ( _PlyColorVertex p ) const { return _PlyColorVertex( point-p.point , color-p.color ); }
+ 		template< class _Real > _PlyColorVertex operator * ( _Real s ) const { return _PlyColorVertex( point*s , color*s ); }
+ 		template< class _Real > _PlyColorVertex operator / ( _Real s ) const { return _PlyColorVertex( point/s , color/s ); }
+ 		_PlyColorVertex& operator += ( _PlyColorVertex p ) { point += p.point , color += p.color ; return *this; }
+diff -up PDAL-2.8.1-src/vendor/kazhdan/SparseMatrix.inl.omv~ PDAL-2.8.1-src/vendor/kazhdan/SparseMatrix.inl
+--- PDAL-2.8.1-src/vendor/kazhdan/SparseMatrix.inl.omv~	2024-11-09 22:38:01.851324518 +0100
++++ PDAL-2.8.1-src/vendor/kazhdan/SparseMatrix.inl	2024-11-09 22:39:47.502561931 +0100
+@@ -189,11 +189,12 @@ void SparseMatrix< T >::SetRowSize( int
+ }
+ 
+ 
++/*
+ template<class T>
+ void SparseMatrix<T>::SetZero()
+ {
+     Resize(this->m_N, this->m_M);
+-}
++}*/
+ 
+ template<class T>
+ SparseMatrix<T> SparseMatrix<T>::operator * (const T& V) const

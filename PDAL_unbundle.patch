@@ -1,0 +1,22 @@
+diff -rupN --no-dereference PDAL-2.8.1-src/CMakeLists.txt PDAL-2.8.1-src-new/CMakeLists.txt
+--- PDAL-2.8.1-src/CMakeLists.txt	2024-10-25 21:27:30.000000000 +0200
++++ PDAL-2.8.1-src-new/CMakeLists.txt	2024-10-26 17:15:51.924165129 +0200
+@@ -118,6 +118,10 @@ include(${PDAL_CMAKE_DIR}/lazperf.cmake)
+ include(${PDAL_CMAKE_DIR}/gcs.cmake) # Optional
+ include(${PDAL_CMAKE_DIR}/utfcpp.cmake)
+ 
++find_package(PkgConfig REQUIRED)
++PKG_CHECK_MODULES(EIGEN REQUIRED eigen3)
++set(PDAL_VENDOR_EIGEN_DIR "${EIGEN_INCLUDE_DIRS}")
++
+ #------------------------------------------------------------------------------
+ # generate the pdal_features.hpp header
+ #------------------------------------------------------------------------------
+@@ -153,7 +157,6 @@ endif()
+ add_subdirectory(plugins)
+ 
+ if (WITH_TESTS)
+-    include (${PDAL_CMAKE_DIR}/gtest.cmake)
+     add_subdirectory(test)
+ endif()
+ add_subdirectory(dimbuilder)

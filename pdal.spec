@@ -2,7 +2,7 @@
 
 %global libname	%mklibname %{name}
 %global devname	%mklibname %{name} -d
-%global major	16
+%global major	18
 
 # We don't want to provide private PDAL extension libs (to be verified)
 %global __provides_exclude_from ^%{_libdir}/libpdal_plugin.*\.so.*$
@@ -11,17 +11,12 @@
 
 Summary:	Point Data Abstraction Library
 Name:		pdal
-Version:	2.6.2
-Release:	2
+Version:	2.8.1
+Release:	1
 Group:		Sciences/Geosciences
 License:	BSD-3-Clause AND Apache-2.0 AND MIT AND BSL-1.0
 URL:		https://www.pdal.io
 Source:		https://github.com/%{name}/%{name}/releases/download/%{version}/PDAL-%{version}-src.tar.bz2
-# (fedora)
-Patch0:		pdal_unbundle.patch
-Patch1:		pdal_tests.patch
-Patch2:		PDAL_build.patch
-Patch3:		pdal_bashcompletion.patch
 BuildRequires:	cmake
 BuildRequires:	ninja
 BuildRequires:	boost-devel
@@ -52,6 +47,10 @@ BuildRequires:	qhull-devel
 
 Requires:	%{libname} = %{EVRD}
 Requires:	bash-completion
+
+%patchlist
+https://src.fedoraproject.org/rpms/PDAL/raw/rawhide/f/PDAL_unbundle.patch
+PDAL-compile.patch
 
 %description
 PDAL is a BSD licensed library for translating and manipulating point cloud
