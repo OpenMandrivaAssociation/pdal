@@ -11,7 +11,7 @@
 
 Summary:	Point Data Abstraction Library
 Name:		pdal
-Version:	2.8.1
+Version:	2.8.4
 Release:	1
 Group:		Sciences/Geosciences
 License:	BSD-3-Clause AND Apache-2.0 AND MIT AND BSL-1.0
@@ -50,7 +50,6 @@ Requires:	bash-completion
 
 %patchlist
 https://src.fedoraproject.org/rpms/PDAL/raw/rawhide/f/PDAL_unbundle.patch
-PDAL-compile.patch
 
 %description
 PDAL is a BSD licensed library for translating and manipulating point cloud
