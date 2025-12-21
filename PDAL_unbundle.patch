@@ -12,11 +12,3 @@ diff -rupN --no-dereference PDAL-2.8.1-src/CMakeLists.txt PDAL-2.8.1-src-new/CMa
  #------------------------------------------------------------------------------
  # generate the pdal_features.hpp header
  #------------------------------------------------------------------------------
-@@ -153,7 +157,6 @@ endif()
- add_subdirectory(plugins)
- 
- if (WITH_TESTS)
--    include (${PDAL_CMAKE_DIR}/gtest.cmake)
-     add_subdirectory(test)
- endif()
- add_subdirectory(dimbuilder)

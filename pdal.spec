@@ -2,7 +2,7 @@
 
 %global libname	%mklibname %{name}
 %global devname	%mklibname %{name} -d
-%global major	18
+%global major	19
 
 # We don't want to provide private PDAL extension libs (to be verified)
 %global __provides_exclude_from ^%{_libdir}/libpdal_plugin.*\.so.*$
@@ -11,7 +11,7 @@
 
 Summary:	Point Data Abstraction Library
 Name:		pdal
-Version:	2.8.4
+Version:	2.9.3
 Release:	1
 Group:		Sciences/Geosciences
 License:	BSD-3-Clause AND Apache-2.0 AND MIT AND BSL-1.0
@@ -136,7 +136,7 @@ This package contains documentation for PDAL.
 %autosetup -p1 -n PDAL-%{version}-src
 
 # Remove some bundled libraries
-rm -rf vendor/{eigen,gtest,pdalboost}
+rm -rf vendor/{eigen,pdalboost}
 
 %build
 %cmake	\
