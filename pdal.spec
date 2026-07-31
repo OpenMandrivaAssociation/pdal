@@ -11,8 +11,8 @@
 
 Summary:	Point Data Abstraction Library
 Name:		pdal
-Version:	2.9.3
-Release:	2
+Version:	2.10.2
+Release:	1
 Group:		Sciences/Geosciences
 License:	BSD-3-Clause AND Apache-2.0 AND MIT AND BSL-1.0
 URL:		https://www.pdal.io
@@ -133,7 +133,7 @@ This package contains documentation for PDAL.
 #--------------------------------------------------------------------
 
 %prep
-%autosetup -p1 -n PDAL-%{version}-src
+%autosetup -p1 -n PDAL-2.10.2-src
 
 # Remove some bundled libraries
 rm -rf vendor/{eigen,pdalboost}
