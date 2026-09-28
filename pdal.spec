@@ -150,8 +150,7 @@ rm -rf vendor/{eigen,pdalboost}
 	-D WITH_TESTS=ON \
 	-D PDAL_HAVE_LIBGEOTIFF=ON \
 	-D PDAL_HAVE_LIBXML2=ON \
-	-D POSTGRESQL_INCLUDE_DIR=%{_includedir}/pgsql \
-	-D POSTGRESQL_LIBRARIES=%{_libdir}/libpq.so \
+	-D BUILD_PLUGIN_PGPOINTCLOUD=ON \
 	-GNinja
 %ninja_build
 
