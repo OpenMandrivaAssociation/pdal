@@ -2,7 +2,7 @@
 
 %global libname	%mklibname %{name}
 %global devname	%mklibname %{name} -d
-%global major	19
+%global major	20
 
 # We don't want to provide private PDAL extension libs (to be verified)
 %global __provides_exclude_from ^%{_libdir}/libpdal_plugin.*\.so.*$
